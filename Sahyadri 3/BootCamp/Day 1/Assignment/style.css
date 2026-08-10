@@ -1,0 +1,69 @@
+body{
+    background-color: #efd2d2;
+}
+
+h1{
+    color: #c82020;
+}
+
+.skills{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: 0.5rem solid #caa5a5;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.skills > h2 {
+    flex-basis: 100%;
+}
+
+.skills > div {
+    flex: 1;
+}
+
+h2{
+    margin: 0;
+}
+
+.project{
+    flex: 0 1 260px;
+    max-width: 260px;
+    border: 0.25rem solid  #a58484;
+    border-radius: 1rem;
+    background-color: #f6e9e9;
+}
+
+
+.projects > h2 {
+    flex-basis: 100%;
+}
+.projects {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border: 0.5rem solid #caa5a5;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.project img {
+    display: block;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    box-sizing: border-box;
+    border: 0.15rem solid #a58484;
+    border-radius: 0.75rem;
+}
+
+footer a + a {
+    margin-left: 1rem;
+}
+
+.contact{
+    border: 0.5rem solid #caa5a5;
+    border-radius: 1rem;
+    padding: 1rem;
+}
