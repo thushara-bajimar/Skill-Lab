@@ -20,6 +20,14 @@ function User1({ name, age }) {  // name start with capital
 
 // Rendering Lists in React allows you to display multiple items dynamically by iterating over data and rendering components or elements for each item.
 
+// cond renderring
+
+function Greeting({isLoggedIn}) {
+  let isLoggedIn = false;
+  return
+  <h1>{isLoggedIn ? "Welcome Back!" : "Please sign In"}</h1>;
+}
+
 
 export default function Page() {
   const students = [
