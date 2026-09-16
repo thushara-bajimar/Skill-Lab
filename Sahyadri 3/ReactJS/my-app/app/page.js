@@ -4,11 +4,11 @@
 
 import Image from "next/image";
 
-function User1({name, age}) {  // name start with capital
-  return(
+function User1({ name, age }) {  // name start with capital
+  return (
     <>
-    <p>Hello, I am {name}</p>
-    <p>I am {age} years old</p>
+      <p>Hello, I am {name}</p>
+      <p>I am {age} years old</p>
     </>
   )
 }
@@ -17,11 +17,21 @@ function User1({name, age}) {  // name start with capital
 // Props are passed to components via HTML attributes.
 // props stands for properties.
 
+
+// Rendering Lists in React allows you to display multiple items dynamically by iterating over data and rendering components or elements for each item.
+
+const fruits = ["apple", "banana", "orange"];
+fruits.map((fruit) => {
+  console.log(fruit);
+})
+
 export default function Page() {
+  const fruits = ["apple", "banana", "orange"];
   return (
     <div>
-      <User1 name="abhi" age="19"/>
-      <User1 name="abc" age="20"/>
+      {fruits.map((fruit) => (
+        <h3>{fruit}</h3>
+      ))}
     </div>
   )
 
