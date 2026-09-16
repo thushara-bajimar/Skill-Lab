@@ -4,19 +4,17 @@
 
 import Image from "next/image";
 
-function User1(props) {  // name start with capital
+function User1({name, age}) {  // name start with capital
   return(
     <>
-    <p>Hello, I am {props.name}</p>
-    <p>I am {props.age} years old</p>
+    <p>Hello, I am {name}</p>
+    <p>I am {age} years old</p>
     </>
   )
 }
 
 // Props are arguments passed into React components.
-
 // Props are passed to components via HTML attributes.
-
 // props stands for properties.
 
 export default function Page() {
