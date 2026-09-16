@@ -20,19 +20,27 @@ function User1({ name, age }) {  // name start with capital
 
 // Rendering Lists in React allows you to display multiple items dynamically by iterating over data and rendering components or elements for each item.
 
-const fruits = ["apple", "banana", "orange"];
-fruits.map((fruit) => {
-  console.log(fruit);
-})
 
 export default function Page() {
-  const fruits = ["apple", "banana", "orange"];
+  const students = [
+    { id: 1, name: "Rahul", age: 20 },
+    { id: 2, name: "Vidya", age: 16 },
+    { id: 3, name: "Hima", age: 19 }
+  ];
   return (
     <div>
-      {fruits.map((fruit) => (
-        <h3>{fruit}</h3>
-      ))}
+    {students.map((student) => (
+      <>
+        <div key={student.id}>
+          <h3>Name: {student.name}</h3>
+          <h3>Age: {student.age}</h3>
+        </div>
+        <br></br>
+      </>
+      ))
+    }
     </div>
+
   )
 
 
