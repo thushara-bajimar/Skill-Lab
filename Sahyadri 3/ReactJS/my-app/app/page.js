@@ -4,14 +4,26 @@
 
 import Image from "next/image";
 
-function Home() {
-  <p>Hello</p>
+function User1(props) {  // name start with capital
+  return(
+    <>
+    <p>Hello, I am {props.name}</p>
+    <p>I am {props.age} years old</p>
+    </>
+  )
 }
 
-export default function page() {
+// Props are arguments passed into React components.
+
+// Props are passed to components via HTML attributes.
+
+// props stands for properties.
+
+export default function Page() {
   return (
     <div>
-      <Home/>
+      <User1 name="abhi" age="19"/>
+      <User1 name="abc" age="20"/>
     </div>
   )
 
