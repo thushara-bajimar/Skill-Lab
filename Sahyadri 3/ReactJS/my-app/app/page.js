@@ -22,10 +22,9 @@ function User1({ name, age }) {  // name start with capital
 
 // cond renderring
 
-function Greeting({isLoggedIn}) {
-  let isLoggedIn = false;
-  return
-  <h1>{isLoggedIn ? "Welcome Back!" : "Please sign In"}</h1>;
+function Greeting({isLoggedIn = false}) {
+  let ans = isLoggedIn ? "Welcome Back!" : "Please sign In";
+  return <h1>{ans}</h1>;
 }
 
 
