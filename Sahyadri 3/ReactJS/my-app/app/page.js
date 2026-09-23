@@ -2,16 +2,16 @@
 // virtual dom: copy
 // jsx: js+html
 
-import Image from "next/image";
+// import Image from "next/image";
 
-function User1({ name, age }) {  // name start with capital
-  return (
-    <>
-      <p>Hello, I am {name}</p>
-      <p>I am {age} years old</p>
-    </>
-  )
-}
+// function User1({ name, age }) {  // name start with capital
+//   return (
+//     <>
+//       <p>Hello, I am {name}</p>
+//       <p>I am {age} years old</p>
+//     </>
+//   )
+// }
 
 // Props are arguments passed into React components.
 // Props are passed to components via HTML attributes.
@@ -22,33 +22,33 @@ function User1({ name, age }) {  // name start with capital
 
 // cond renderring
 
-function Greeting({isLoggedIn = false}) {
-  let ans = isLoggedIn ? "Welcome Back!" : "Please sign In";
-  return <h1>{ans}</h1>;
-}
+// function Greeting({isLoggedIn = false}) {
+//   let ans = isLoggedIn ? "Welcome Back!" : "Please sign In";
+//   return <h1>{ans}</h1>;
+// }
 
 
-export default function Page() {
-  const students = [
-    { id: 1, name: "Rahul", age: 20 },
-    { id: 2, name: "Vidya", age: 16 },
-    { id: 3, name: "Hima", age: 19 }
-  ];
-  return (
-    <div>
-    {students.map((student) => (
-      <>
-        <div key={student.id}>
-          <h3>Name: {student.name}</h3>
-          <h3>Age: {student.age}</h3>
-        </div>
-        <br></br>
-      </>
-      ))
-    }
-    </div>
+// export default function Page() {
+//   const students = [
+//     { id: 1, name: "Rahul", age: 20 },
+//     { id: 2, name: "Vidya", age: 16 },
+//     { id: 3, name: "Hima", age: 19 }
+//   ];
+//   return (
+//     <div>
+//     {students.map((student) => (
+//       <>
+//         <div key={student.id}>
+//           <h3>Name: {student.name}</h3>
+//           <h3>Age: {student.age}</h3>
+//         </div>
+//         <br></br>
+//       </>
+//       ))
+//     }
+//     </div>
 
-  )
+//   )
 
 
 
@@ -83,7 +83,7 @@ export default function Page() {
   //     </div>
   //   </>
   // )
-}
+// }
 
 // import Image from "next/image";
 
@@ -154,3 +154,16 @@ export default function Page() {
 //     </div>
 //   );
 // }
+
+
+
+// state management
+
+import State from "./state";
+export default function Home(){
+  return(
+    <>
+    <State/>    {/* ctrl click to go to component */}
+    </>
+  )
+}
