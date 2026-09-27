@@ -159,11 +159,17 @@
 
 // state management
 
-import State from "./state";
-export default function Home(){
-  return(
-    <>
-    <State/>    {/* ctrl click to go to component */}
-    </>
-  )
+// import State from "./state";
+// export default function Home(){
+//   return(
+//     <>
+//     <State/>    {/* ctrl click to go to component */}
+//     </>
+//   )
+// }
+
+import ActivityDashboard from "../activities/activity23_9/act1Props";
+
+export default function Page() {
+  return <ActivityDashboard />;
 }

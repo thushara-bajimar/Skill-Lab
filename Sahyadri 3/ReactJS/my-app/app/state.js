@@ -20,7 +20,7 @@ import { useState } from "react";
 // }
 export default function State(){
     // const [state, setState] = useState(initialState)
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState("dark");
 
     function Light(){
         setTheme("light");
@@ -32,7 +32,7 @@ export default function State(){
 
     const containerStyle = {
         backgroundcolor: theme === "light"?  "#fff": "#000",
-        color: theme === "dark"?" #000": "#fff"
+        color: theme === "light"?" #000": "#fff"
     }
 
     // function change(){
