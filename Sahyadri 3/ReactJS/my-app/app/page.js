@@ -416,7 +416,7 @@
 // Props are data coming into a component. State is data managed by the component that can change over time.
 // State is data that can change during the lifetime of a component, and when the state changes, React re-renders the component.
 
-import Form from './form'
+import Form from '../activities/activity30_9/form'
 export default function Home(){
   return(
     <>
