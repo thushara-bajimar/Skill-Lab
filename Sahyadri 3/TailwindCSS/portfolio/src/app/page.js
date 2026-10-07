@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-100">
       <nav className="flex items-center justify-between px-8 py-5">
-        <h1 className="text-2xl font-bold">TB</h1>
+        <h1 className="text-2xl font-bold text-blue-950">TB</h1>
 
         <div className="hidden gap-8 md:flex">
           <a href="#" className="text-gray-700 hover:text-blue-600">
