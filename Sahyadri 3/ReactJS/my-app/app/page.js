@@ -424,12 +424,11 @@
 //     </>
 //   )
 // }
-
-import Navbar from "./Navbar";
+import ProductCard from './productCard';
 export default function Home(){
   return(
     <>
-      <Navbar/>
+      <ProductCard/>
       {/* Hellooo !! This is Thushara */}
     </>
   )
