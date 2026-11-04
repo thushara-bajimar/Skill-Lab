@@ -10,7 +10,7 @@ export default function ProductCard() {
   return (
     <div className="flex flex-col gap-6 border-8 rounded-3xl border-fuchsia-800 p-4 sm:flex-row sm:items-center bg-purple-100 w-110">
       <img
-        className="mx-auto block h-54 w-44 rounded-full object-cover sm:mx-0 sm:shrink-0 border border-fuchsia-800 border-5"
+        className="mx-auto block h-54 w-44 rounded-full object-cover sm:mx-0 sm:shrink-0 border-fuchsia-800 border-5"
         src="https://rukminim3.flixcart.com/image/480/640/xif0q/watch/w/s/5/-watermarked-original-imahz8yf3ad6r6hz.jpeg?q=90&width=512"
         alt="RAGA Titan quartz watch"
       />

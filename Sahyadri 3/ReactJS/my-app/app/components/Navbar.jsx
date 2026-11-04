@@ -1,18 +1,45 @@
-import Link from "next/link";
+// import Link from "next/link";
+// import UserDetails from "./UserDetails";
+
+"use client";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 export default function Navbar() {
+  const { name } = useContext(UserContext);
   return (
     <>
+    <h2>Welcome, {name} (this is from navbar)</h2>
+    {/* <UserDetails /> */}
+
+   
+
+
+
+
+
+
+
+
+
+
+     {/* <h1>This is the Navbar</h1>
+    <UserDetails name={name} /> */}
+
+
+
+
       {/* <div className="bg-orange-400">
       <h1 className="text-info">Welcome to portfolio page</h1>
     </div> */}
-
-      <div className="w-100">
-        <div className="flex gap-5 bg-orange-400">
+    {/* ----- */}
+      {/* <div className="w-100">
+        <div className="flex gap-5 bg-orange-400"> */}
+        {/* --- */}
           {/* The commented out code below is fine, but remember to change class to className if you uncomment it */}
           {/* <h1 className="text-gray-500 dark:text-red-400">NavBar</h1> */}
 
-          <Link href="/home" className="text-blue-600 visited:text-purple-600">
+          {/* <Link href="/home" className="text-blue-600 visited:text-purple-600">
             Home
           </Link>
           <Link href="/about" className="text-blue-600 visited:text-purple-600">
@@ -25,9 +52,9 @@ export default function Navbar() {
           >
             Contact
           </Link>
-        </div>
+        </div> */}
 
-        <div className="bg-yellow-400">
+        {/* <div className="bg-yellow-400">
           <h1>Thushara B S</h1>
           <h2>Student Developer</h2>
           <div>
@@ -41,7 +68,11 @@ export default function Navbar() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
+{/* -------------------- */}
+
+
+
     </>
   );
 }

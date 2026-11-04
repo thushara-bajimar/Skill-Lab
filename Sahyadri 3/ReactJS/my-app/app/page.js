@@ -1,3 +1,5 @@
+
+
 // // comp based struc
 // // virtual dom: copy
 // // jsx: js+html
@@ -394,7 +396,7 @@
 // State is data that can change during the lifetime of a component, and when the state changes, React re-renders the component.
 
 
-// import State from "./State"
+// import Page from "./page"
 // export default function Page() {
 //   return (
 //     <div>
@@ -424,12 +426,31 @@
 //     </>
 //   )
 // }
-import ProductCard from './productCard';
-export default function Home(){
-  return(
-    <>
-      <ProductCard/>
-      {/* Hellooo !! This is Thushara */}
-    </>
-  )
+// import ProductCard from './productCard';
+// export default function Home(){
+//   return(
+//     <>
+//       <ProductCard/>
+//     </>
+//   )
+// }
+
+"use client";
+
+import { useState } from "react";
+
+import Navbar from './components/Navbar';
+import HomePg from "./home/page";
+// import UserDetails from './components/UserDetails';
+
+export default function Home() {
+    // const [name, setName] = useState("Thushara");
+    return(
+        <div>
+            <h1>Welcome (this is from home page)</h1>
+            <Navbar/>
+            <HomePg />
+            {/* <UserDetails/> */}
+        </div>
+    )
 }
