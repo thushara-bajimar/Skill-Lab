@@ -1,3 +1,4 @@
+import "./globals.css";
 import UserProvider from "./context/UserContext";
 export default function RootLayout({ children }) {
   return (

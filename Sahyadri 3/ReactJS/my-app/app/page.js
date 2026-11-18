@@ -435,22 +435,33 @@
 //   )
 // }
 
-"use client";
+// "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 
-import Navbar from './components/Navbar';
-import HomePg from "./home/page";
-// import UserDetails from './components/UserDetails';
+// import Navbar from './components/Navbar';
+// import HomePg from "./home/page";
+// // import UserDetails from './components/UserDetails';
 
-export default function Home() {
-    // const [name, setName] = useState("Thushara");
+// export default function Home() {
+//     // const [name, setName] = useState("Thushara");
+//     return(
+//         <div>
+//             <h1>Welcome (this is from home page)</h1>
+//             <Navbar/>
+//             <HomePg />
+//             {/* <UserDetails/> */}
+//         </div>
+//     )
+// }
+
+
+import Home from "./components/FetchData";
+
+export default function App() {
     return(
-        <div>
-            <h1>Welcome (this is from home page)</h1>
-            <Navbar/>
-            <HomePg />
-            {/* <UserDetails/> */}
-        </div>
+        <>
+        <Home />
+        </>
     )
 }
