@@ -42,7 +42,7 @@ export default function Home() {
                 />
                 <div class="space-y-2 text-center sm:text-left">
                   <div class="space-y-0.5">
-                    <p class="text-lg font-semibold text-black hover:text-rose-400 hover:text-3xl">
+                    <p className="text-lg font-semibold text-black hover:text-rose-400 hover:text-3xl">
                       Name: {user.name}
                     </p>
                     <p class="font-medium text-gray-500">Email: {user.email}</p>
