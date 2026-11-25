@@ -11,17 +11,30 @@ export async function POST(request) {
       );
     }
 
-    const { messages } = await request.json();
+    let body;
+    try {
+      body = await request.json();
+    } catch {
+      return Response.json({ error: "The request body must be valid JSON." }, { status: 400 });
+    }
+
+    const { messages } = body ?? {};
 
     if (!Array.isArray(messages) || messages.length === 0) {
       return Response.json({ error: "At least one message is required." }, { status: 400 });
     }
 
+    if (messages.length > 100) {
+      return Response.json({ error: "Too many messages were sent." }, { status: 400 });
+    }
+
     const contents = messages
       .filter(message =>
+        message &&
         (message.role === "user" || message.role === "model") &&
         typeof message.text === "string" &&
-        message.text.trim(),
+        message.text.trim() &&
+        message.text.length <= 4000,
       )
       .slice(-20)
       .map(message => ({
@@ -48,6 +61,9 @@ export async function POST(request) {
     return Response.json({ reply });
   } catch (error) {
     console.log(error);
-    return Response.json({ error: error.message || "The AI request failed." }, { status: 500 });
+    return Response.json(
+      { error: "The AI service could not complete your request. Please try again." },
+      { status: 502 },
+    );
   }
 }

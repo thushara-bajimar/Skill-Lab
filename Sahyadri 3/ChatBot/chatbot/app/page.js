@@ -43,10 +43,14 @@ export default function Home() {
         })
       })
 
-      const data = await response.json()
+      const data = await response.json().catch(() => ({}))
 
       if (!response.ok) {
         throw new Error(data.error || "API request failed")
+      }
+
+      if (typeof data.reply !== "string" || !data.reply.trim()) {
+        throw new Error("The AI returned an empty response. Please try again.")
       }
 
       setChat(prev => [
@@ -56,7 +60,7 @@ export default function Home() {
 
     } catch (error) {
 
-      console.log(error)
+      console.error(error)
 
       setChat(prev => [
         ...prev,
@@ -71,31 +75,46 @@ export default function Home() {
   return (
     <div style={{ padding: "30px" }}>
 
-      <h1>My First AI Chatbot</h1>
-
-      {chat.map((item, index) => (
-        <div key={index}>
-          <b>{item.sender}:</b>
-          <p>{item.text}</p>
+      <div className="mx-auto flex max-w-xl items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-blue-200 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10 border-4 border-double">
+        <div aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full bg-blue-500 text-xl text-white">
+          <img src = "https://img.magnific.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?semt=ais_hybrid&w=740&q=80"/>
         </div>
-      ))}
+        <div>
+          <div className="text-xl font-medium text-blue-800 dark:text-white"><h1>My AI Chatbot</h1></div>
+          <p className="text-gray-500 dark:text-gray-400">Chat With The AI!</p>
+        </div>
+        <br></br>
+        <div>
+        {chat.map((item, index) => (
+          <div key={index}>
+            <b>{item.sender}:</b>
+            <p>{item.text}</p>
+          </div>
+        ))}
 
-      {loading && <p>Bot is typing...</p>}
+        {loading && <p>Bot is typing...</p>}
 
-      <input
-        type="text"
-        placeholder="Type your message..."
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") sendMessage()
-        }}
-      />
+        <input
+          type="text"
+          placeholder="Type your message..."
+          value={message}
+          disabled={loading}
+          onChange={(e) => setMessage(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") sendMessage()
+          }}
+        />
 
-      <button onClick={sendMessage}>
-        Send
-      </button>
+        <button onClick={sendMessage} disabled={loading || !message.trim()}>
+          {loading ? "Sending..." : "Send"}
+        </button>
+        </div>
+      </div>
     </div>
+
+
+
+
   )
 }
 
