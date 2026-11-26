@@ -73,48 +73,91 @@ export default function Home() {
   }
 
   return (
-    <div style={{ padding: "30px" }}>
-
-      <div className="mx-auto flex max-w-xl items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-blue-200 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10 border-4 border-double">
-        <div aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full bg-blue-500 text-xl text-white">
-          <img src = "https://img.magnific.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?semt=ais_hybrid&w=740&q=80"/>
-        </div>
-        <div>
-          <div className="text-xl font-medium text-blue-800 dark:text-white"><h1>My AI Chatbot</h1></div>
-          <p className="text-gray-500 dark:text-gray-400">Chat With The AI!</p>
-        </div>
-        <br></br>
-        <div>
-        {chat.map((item, index) => (
-          <div key={index}>
-            <b>{item.sender}:</b>
-            <p>{item.text}</p>
+    <main className="min-h-screen bg-slate-100 p-0 sm:p-6">
+      <section className="mx-auto flex h-dvh w-full max-w-3xl flex-col overflow-hidden bg-white shadow-sm sm:h-[calc(100dvh-3rem)] sm:rounded-2xl sm:border sm:border-slate-200 sm:shadow-xl">
+        <header className="flex items-center gap-3 border-b border-slate-200 px-4 py-4 sm:px-6 bg-blue-200">
+          <div
+            aria-hidden="true"
+            className="flex size-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-2xl border border-blue-300"
+          ><img src="https://img.magnific.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?semt=ais_hybrid&w=740&q=80" />
           </div>
-        ))}
+          <div>
+            <h1 className="text-lg font-semibold text-slate-900 sm:text-xl">
+              My AI Chatbot
+            </h1>
+            <p className="text-sm text-slate-500">Chat with your AI assistant</p>
+          </div>
+        </header>
 
-        {loading && <p>Bot is typing...</p>}
+        <div
+          aria-live="polite"
+          className="flex-1 space-y-4 overflow-y-auto bg-blue-50 p-4 sm:p-6"
+        >
+          {chat.length === 0 && (
+            <p className="pt-6 text-center text-sm text-slate-500">
+              Send a message to get started.
+            </p>
+          )}
 
-        <input
-          type="text"
-          placeholder="Type your message..."
-          value={message}
-          disabled={loading}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") sendMessage()
-          }}
-        />
+          {chat.map((item, index) => {
+            const isUser = item.sender === "You"
 
-        <button onClick={sendMessage} disabled={loading || !message.trim()}>
-          {loading ? "Sending..." : "Send"}
-        </button>
+            return (
+              <div
+                key={index}
+                className={`flex ${isUser ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[85%] rounded-2xl px-4 py-3 shadow-sm sm:max-w-[75%] ${isUser
+                      ? "rounded-br-md bg-blue-600 text-white border-white"
+                      : "rounded-bl-md border border-slate-200 bg-white text-slate-800"
+                    }`}
+                >
+                  <p className="mb-1 text-xs font-medium opacity-70">
+                    {isUser ? "You" : "AI"}
+                  </p>
+                  <p className="whitespace-pre-wrap wrap-break-word text-sm leading-6">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+
+          {loading && (
+            <div className="flex justify-start">
+              <p className="rounded-2xl rounded-bl-md border border-slate-300 bg-white px-4 py-3 text-sm text-slate-500 shadow-sm">
+                Bot is typing...
+              </p>
+            </div>
+          )}
         </div>
-      </div>
-    </div>
 
-
-
-
+        <div className="border-t border-slate-200  bg-blue-200 p-4 sm:p-5">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <input
+              type="text"
+              aria-label="Type your message"
+              placeholder="Type your message..."
+              value={message}
+              disabled={loading}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") sendMessage()
+              }}
+              className="min-w-0 flex-1 rounded-xl border border-slate-300 bg-blue-50 px-4 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 disabled:bg-slate-50"
+            />
+            <button
+              onClick={sendMessage}
+              disabled={loading || !message.trim()}
+              className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-blue-300"
+            >
+              {loading ? "Sending..." : "Send"}
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }
 
