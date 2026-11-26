@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
+import ReactMarkdown from "react-markdown"
 
 export default function Home() {
 
@@ -79,7 +81,13 @@ export default function Home() {
           <div
             aria-hidden="true"
             className="flex size-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-2xl border border-blue-300"
-          ><img src="https://img.magnific.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?semt=ais_hybrid&w=740&q=80" />
+          ><Image
+            src="https://img.magnific.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?semt=ais_hybrid&w=740&q=80"
+            alt="Chatbot icon"
+            width={48}
+            height={48}
+            unoptimized
+          />
           </div>
           <div>
             <h1 className="text-lg font-semibold text-slate-900 sm:text-xl">
@@ -116,9 +124,15 @@ export default function Home() {
                   <p className="mb-1 text-xs font-medium opacity-70">
                     {isUser ? "You" : "AI"}
                   </p>
-                  <p className="whitespace-pre-wrap wrap-break-word text-sm leading-6">
-                    {item.text}
-                  </p>
+                  {isUser ? (
+                    <p className="whitespace-pre-wrap wrap-break-word text-sm leading-6">
+                      {item.text}
+                    </p>
+                  ) : (
+                    <div className="text-sm leading-6 [&_h1]:mb-2 [&_h1]:mt-4 [&_h1]:text-xl [&_h1]:font-bold [&_h2]:mb-2 [&_h2]:mt-4 [&_h2]:text-lg [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-3 [&_h3]:font-semibold [&_p]:my-2 [&_strong]:font-semibold [&_em]:italic [&_ul]:my-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:my-1 [&_a]:text-blue-700 [&_a]:underline [&_a]:underline-offset-2 [&_pre]:my-3 [&_pre]:max-w-full [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:border [&_pre]:border-slate-700 [&_pre]:bg-slate-900 [&_pre]:p-3 [&_pre]:text-xs [&_pre]:leading-5 [&_code]:font-mono [&_code]:text-[0.9em] [&_pre_code]:text-slate-100 [&_p_code]:rounded [&_p_code]:bg-slate-100 [&_p_code]:px-1 [&_p_code]:py-0.5 [&_blockquote]:my-2 [&_blockquote]:border-l-2 [&_blockquote]:border-slate-300 [&_blockquote]:pl-3 [&_blockquote]:text-slate-600">
+                      <ReactMarkdown>{item.text}</ReactMarkdown>
+                    </div>
+                  )}
                 </div>
               </div>
             )
